@@ -1,0 +1,27 @@
+<%= javascript_include_tag "application" %>
+<%= form_for @item_master do |f| %>
+  <% if @item_master.errors.any? %>
+    <div class="error_messages">
+      <h2><%= pluralize(@item_master.errors.count, "error") %> prohibited this item_master from being saved:</h2>
+      <ul>
+      <% @item_master.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+
+  <%= f.fields_for :item_colors do |builder| %>
+     <%= render 'item_color_fields', f: builder %>
+  <% end %>
+  <%= link_to_add_fields "Add Color", f, :item_colors %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

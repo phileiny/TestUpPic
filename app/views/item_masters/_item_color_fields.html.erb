@@ -1,0 +1,10 @@
+<fieldset>
+  <%= f.label :color, "Color" %><br />
+  <%= f.text_area :name %><br />
+  <%= f.check_box :_destroy %>
+  <%= f.label :_destroy, "Remove Color" %>
+  <%= f.fields_for :item_details do |builder| %>
+    <%= render 'item_detail_fields', f: builder %>
+  <% end %>
+  <%= link_to_add_fields "Add Size", f, :item_details %>
+</fieldset>

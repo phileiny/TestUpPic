@@ -1,0 +1,17 @@
+<h1><%= @item_master.title %></h1>
+
+<ol class="item_colors">
+<% @item_master.item_colors.each do |item_color| %>
+  <li>
+    <%= item_color.name %>
+    <ol class="item_details">
+      <% item_color.item_details.each do |item_detail| %>
+        <li><%= item_detail.size_name %></li>
+      <% end %>
+    </ol>
+  </li>
+<% end %>
+</ol>
+
+<%= link_to 'Edit', edit_item_master_path(@item_master) %> |
+<%= link_to 'Back to Items', item_masters_path %>

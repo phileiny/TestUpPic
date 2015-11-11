@@ -1,0 +1,10 @@
+<h1>Items</h1>
+
+<% @item_master.each do |item_master| %>
+  <div class="article">
+    <h2><%= link_to item_master.title, item_master %></h2>
+    <%#= pluralize(item_master.item_color.size, "Item_color") %>
+  </div>
+<% end %>
+
+<p><%= link_to 'New Item', new_item_master_path %></p>
